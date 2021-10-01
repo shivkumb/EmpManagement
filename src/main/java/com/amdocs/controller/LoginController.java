@@ -29,19 +29,18 @@ public class LoginController {
 
 		switch (login.isValidCred(username, password)) {
 		case 0: {
-			System.out.println("CASE 0");
 			mv.setViewName("EmpHome");
-			mv.addObject("loginStatus", "User Login Successful");
+			mv.addObject("firstName",login.getUserDetails().getEmployeeID().getFirstName());
+			mv.addObject("lastName",login.getUserDetails().getEmployeeID().getLastName());
 			return mv;
 		}
 		case 1: {
-			System.out.println("CASE 1");
 			mv.setViewName("AdminHome");
-			mv.addObject("loginStatus", "Admin Login Successful");
+			mv.addObject("firstName",login.getUserDetails().getEmployeeID().getFirstName());
+			mv.addObject("lastName",login.getUserDetails().getEmployeeID().getLastName());
 			return mv;
 		}
 		default:
-			System.out.println("CASE Default");
 			mv.setViewName("Login");
 			mv.addObject("loginStatus", "Something went wrong,try with valid creditials");
 			return mv;
