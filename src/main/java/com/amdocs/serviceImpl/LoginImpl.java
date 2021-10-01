@@ -16,11 +16,11 @@ public class LoginImpl implements Login {
 	LoginDao loginDao;
 	@Autowired
 	EmployeeService employeeService;
-
+	private LoginCred loginCred;
 	@Override
 	public char isValidCred(String username, String password) {
 
-		LoginCred loginCred = loginDao.checkValidUser(username, password);
+		loginCred = loginDao.checkValidUser(username, password);
 		System.out.println(loginCred);
 
 		if (loginCred.getUsername() != null && loginCred.getPassword() != null && loginCred.getEmployeeID() != null) {
@@ -34,6 +34,13 @@ public class LoginImpl implements Login {
 		}
 		return 2;
 
+	}
+	
+
+	@Override
+	public LoginCred getUserDetails()
+	{
+		return this.loginCred;
 	}
 
 }

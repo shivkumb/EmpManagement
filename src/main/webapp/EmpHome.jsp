@@ -7,7 +7,7 @@
 <title>Employee Home</title>
 <h1>Welcome to Employee HomePage</h1>
 </head>
-
+<header><b><mark> Welcome ${firstName}  ${lastName} </mark></b></header>
 <body>
 
 <%

@@ -7,8 +7,7 @@
 <title>AdminHome</title>
 </head>
 <body>
-Welcome To admin page
-
+<header><b><mark> Welcome ${firstName}  ${lastName} </mark></b></header>
 <%
 response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
