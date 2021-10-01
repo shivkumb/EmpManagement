@@ -18,7 +18,7 @@ public class LoginController {
 	public String redirectToLoginPage()
 	{
 		
-		
+		System.out.println("in rediect to loginPage method");
 		return "Login";
 	}
 	

@@ -21,4 +21,24 @@ public class EmployeeController {
 		return employee;
 		
 	}
+	
+	@RequestMapping("/updateEmployee")
+	public Employee updateEmployee(Employee employee)
+	{
+		
+		employeeService.saveEmployee(employee);
+		
+		return employee;
+		
+	}
+	
+	@RequestMapping("/deleteEmployee/{employeeID}")
+	public Employee deleteEmployee(int employeeID)
+	{
+		
+		Employee employee = null;
+		
+		return employee;
+		
+	}
 }
