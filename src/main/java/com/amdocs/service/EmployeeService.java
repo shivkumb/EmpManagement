@@ -10,7 +10,7 @@ public interface EmployeeService {
 	
 	public Employee saveEmployee(Employee employee);
 	
-	public Employee getEmployeeByEmpID(int empID) throws Exception;
+	public Employee getEmployeeByEmpID(int empID);
 	
 	public Employee getEmployeeByContactNumber(long contact_number);
 	

@@ -7,5 +7,7 @@ public interface Login {
 	
 	public char isValidCred(String username, String password);
 
-	LoginCred getUserDetails();
+	public LoginCred getUserDetails();
+	
+	public void logoutActiveUser();
 }
