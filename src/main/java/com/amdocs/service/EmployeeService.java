@@ -1,16 +1,19 @@
 package com.amdocs.service;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.amdocs.model.Employee;
+
+
 @Service
 public interface EmployeeService {
 
 	
 	public Employee saveEmployee(Employee employee);
 	
-	public Employee getEmployeeByEmpID(int empID) throws Exception;
+	public Employee getEmployeeByEmpID(int empID);
 	
 	public Employee getEmployeeByContactNumber(long contact_number);
 	

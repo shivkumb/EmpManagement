@@ -1,5 +1,7 @@
 package com.amdocs.serviceImpl;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,14 @@ public class LoginImpl implements Login {
 	public LoginCred getUserDetails()
 	{
 		return this.loginCred;
+	}
+	
+	@Autowired
+	HttpSession session;
+	@Override
+	public void logoutActiveUser() {
+		session.removeAttribute("username");
+		session.invalidate();
 	}
 
 }

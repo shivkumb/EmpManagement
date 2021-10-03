@@ -1,11 +1,15 @@
 package com.amdocs.service;
 
-import com.amdocs.model.LoginCred;
+import org.springframework.stereotype.Service;
 
+import com.amdocs.model.LoginCred;
+@Service
 public interface Login {
 
 	
 	public char isValidCred(String username, String password);
 
-	LoginCred getUserDetails();
+	public LoginCred getUserDetails();
+	
+	public void logoutActiveUser();
 }
