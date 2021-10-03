@@ -1,7 +1,9 @@
 package com.amdocs.service;
 
-import com.amdocs.model.LoginCred;
+import org.springframework.stereotype.Service;
 
+import com.amdocs.model.LoginCred;
+@Service
 public interface Login {
 
 	
