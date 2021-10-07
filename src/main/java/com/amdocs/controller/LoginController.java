@@ -36,25 +36,22 @@ public class LoginController {
 	@RequestMapping(path = "/validatelogin",method = RequestMethod.GET)
 	public ModelAndView validateLoginCred(@RequestParam("username") String username,@RequestParam("password") String password)
 	{
-		ModelAndView mv = new ModelAndView();
+		
 
 		switch (login.isValidCred(username, password)) {
 		case 0: {
 			
 			LoginCred loginCred = login.getUserDetails();
 			ModelAndView mvc = new ModelAndView("EmpHome","empDetails", loginCred.getEmployeeID());
-			request.getSession().setAttribute("username", loginCred.getUsername());
 			return mvc;
 		}
 		case 1: {
-			mv.setViewName("AdminHome");
-			mv.addObject("firstName",login.getUserDetails().getEmployeeID().getFirstName());
-			mv.addObject("lastName",login.getUserDetails().getEmployeeID().getLastName());
-			mv.addObject("employeeID",login.getUserDetails().getEmployeeID().getEmployeeID());
-			return mv;
+			LoginCred loginCred = login.getUserDetails();
+			ModelAndView mvc = new ModelAndView("AdminHome","empDetails", loginCred.getEmployeeID());
+			return mvc;
 		}
 		default:
-			mv.setViewName("Login");
+			ModelAndView mv = new ModelAndView("Login");
 			mv.addObject("loginStatus", "Something went wrong,try with valid creditials");
 			return mv;
 		}

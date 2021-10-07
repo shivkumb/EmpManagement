@@ -14,7 +14,7 @@
 </section>
 
 <body>
-<%
+<%-- <%
 if(session.getAttribute("username")==null)
 {
 	response.sendRedirect("Login.jsp");
@@ -25,6 +25,6 @@ response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 response.setHeader("pragma", "no-cache");
 
 response.setHeader("Expires", "0");
-%>
+%> --%>
 </body>
 </html>

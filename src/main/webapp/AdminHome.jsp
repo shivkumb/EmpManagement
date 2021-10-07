@@ -8,7 +8,7 @@
 </head>
 <body>
 <header><b><mark> Welcome ${firstName}  ${lastName} </mark></b></header>
-<%
+<%-- <%
 response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
 response.setHeader("pragma", "no-cache");
@@ -17,6 +17,6 @@ response.setHeader("Expires", "0");
 
 response.setHeader("Refresh","10; URL=Login.jsp");
 
-%>
+%> --%>
 </body>
 </html>
