@@ -1,35 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
-<h2>Welcome to Testing Shstra</h2>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+	crossorigin="anonymous">
+
 </head>
+
 <body>
-<form action="validatelogin" method="post">
-        <fieldset>
-          <legend>Login to App</legend>
-          <section>
-          <label for="username">Username: </label>
-          <input type="text" id="username" name="username" required>
-        </section>
-        <section>
-            <label for="password">Password: </label>
-            <input type="text" id="password" name="password" required>
-          </section>
-          <input type="submit" value="Submit">
-        </fieldset>
-      </form>
-      
-<%
-response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  // HTTP 1.1
+	<h2 style="text-align: center;">Welcome to Testing Shastra</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
 
-response.setHeader("pragma", "no-cache");  // HTTP 1.0
+				<form action="validatelogin" method="post" ${loginDetails}>
+					<fieldset>
+						<legend>Fill the details to login</legend>
+						<section class="form-group">
+							<label for="username">Username</label> <input type="text"
+								class="form-control" id="username" name="username"
+								aria-describedby="emailHelp" value="${loginDetails.username}">
+							<!-- required="required"> -->
+							<div id="emailHelp" class="form-text">We'll never share
+								your details with anyone else.</div>
+						</section>
 
-response.setHeader("Expires", "0"); 	// proxies
 
-%>
+						<section class="form-group">
+							<label for="password">Password</label> <input type="password"
+								class="form-control" id="password" name="password"
+								value="${loginDetails.password}">
+							<!-- required="required" -->
+						</section>
+						<br>
+						<div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

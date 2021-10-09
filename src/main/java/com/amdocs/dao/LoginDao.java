@@ -4,5 +4,5 @@ import com.amdocs.model.LoginCred;
 
 public interface LoginDao {
 
-	public LoginCred checkValidUser(String username, String password);
+	public LoginCred findByUsername(String username);
 }

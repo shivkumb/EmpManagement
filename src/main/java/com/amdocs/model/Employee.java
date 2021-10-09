@@ -1,10 +1,14 @@
 package com.amdocs.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity(name = "table_employee")
 public class Employee {
@@ -29,8 +33,21 @@ public class Employee {
 	@Column(name = "isActive")
 	private boolean isActive;
 	
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "employeeID")
+	@JsonBackReference
+	private LoginCred loginCred;
 	
 	
+	
+	public LoginCred getLoginCred() {
+		return loginCred;
+	}
+	public void setLoginCred(LoginCred loginCred) {
+		this.loginCred = loginCred;
+	}
+	public void setContactNumber(long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
 	public boolean isActive() {
 		return isActive;
 	}

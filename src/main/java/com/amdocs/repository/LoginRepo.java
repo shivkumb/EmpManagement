@@ -7,5 +7,5 @@ import com.amdocs.model.LoginCred;
 @Repository
 public interface LoginRepo extends JpaRepository<LoginCred, String>{
 
-	public LoginCred findByUsernameAndPassword(String username,String password);
+	public LoginCred findByUsername(String username);
 }

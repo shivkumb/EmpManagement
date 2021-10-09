@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "login_cred")
@@ -18,27 +23,37 @@ public class LoginCred {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long objId;
 	
-	@OneToOne
-	@JoinColumn(name = "employee_id")
-	private Employee employeeID;
 	
-	@Column(name = "user_name")
+	
+	@Column(name = "username")
+	@NotBlank(message = "Username can be empty !!")
+	@Size(min = 1,max = 20,message = "Username must be in 5 to 20 characters !!")
+	//@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message = "Invalid format for username")
 	private String username;
 	
+	@NotBlank(message = "Password can be empty !!")
+	//@Size(min = 1,max = 20,message = "Password must be in 5 to 20 characters !!")
 	@Column(name = "password",nullable = false,unique = true)
 	private String password;
 
-	@Column(name = "is_admin")
-	private boolean isAdmin;
+	@Column(name = "user_role")
+	private String role;
 	
-	public boolean getIsAdmin() {
-		return isAdmin;
+	
+	@OneToOne
+	@JoinColumn(name = "employee_id")
+	@JsonManagedReference
+	private Employee employeeID;
+	
+	public String getRole() {
+		return role;
 	}
 
-	public void setIsAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
+	
 	public long getObjId() {
 		return objId;
 	}
@@ -74,8 +89,9 @@ public class LoginCred {
 	@Override
 	public String toString() {
 		return "LoginCred [objId=" + objId + ", employeeID=" + employeeID + ", username=" + username + ", password="
-				+ password + ", isAdmin=" + isAdmin + "]";
+				+ password + ", role=" + role + "]";
 	}
+
 	
 	
 }
